@@ -7,7 +7,8 @@ Namespace Controllers
 
         ' GET: api/Vehiculo
         Public Function GetValues() As IEnumerable(Of String)
-            Return New String() {"value1", "value2"}
+            Dim servicioVehiculo As New ServicioVehiculo
+            Return servicioVehiculo.consultarVehiculos()
         End Function
 
         ' GET: api/Vehiculo/5
