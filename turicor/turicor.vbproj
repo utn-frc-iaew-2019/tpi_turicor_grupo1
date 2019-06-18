@@ -171,7 +171,6 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Home.html" />
-    <Content Include="inicio.html" />
     <Content Include="js\angular.js" />
     <Content Include="js\app.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -202,7 +201,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\javascript\inicio.js" />
+    <Content Include="Scripts\javascript\home.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
