@@ -1,13 +1,13 @@
 ﻿Public Class ServicioVehiculo
+    Private credenciales As New ServicioWCF.Credentials
+    Private cliente As ServicioWCF.WCFReservaVehiculosClient
 
-    Private cliente As New ServicioWCF.WCFReservaVehiculosClient
+    Public Sub New()
+        credenciales.UserName = "grupo_nro1"
+        credenciales.Password = "AzArobmjV0"
+    End Sub
 
     Public Function consultarVehiculos()
-        Dim usuario = "grupo_nro1"
-        Dim pass = "AzArobmjV0"
-        Dim credenciales As New ServicioWCF.Credentials()
-        credenciales.UserName = usuario
-        credenciales.Password = pass
 
         Dim request As New ServicioWCF.ConsultarVehiculosRequest()
 

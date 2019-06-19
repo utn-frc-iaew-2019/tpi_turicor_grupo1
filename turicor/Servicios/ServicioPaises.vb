@@ -1,4 +1,4 @@
-﻿Public Class ServicioReserva
+﻿Public Class ServicioPaises
     Private credenciales As New ServicioWCF.Credentials
     Private cliente As ServicioWCF.WCFReservaVehiculosClient
 
@@ -7,13 +7,9 @@
         credenciales.Password = "AzArobmjV0"
     End Sub
 
-    Public Function consultarReservasRealizadas()
-
-        Dim request As New ServicioWCF.ConsultarReservasRequest()
-
-        Dim listado = cliente.ConsultarReserva(credenciales, request)
+    Public Function consultarPaises()
+        Dim listado = cliente.ConsultarPaises(credenciales)
         Return listado
     End Function
-
 
 End Class
