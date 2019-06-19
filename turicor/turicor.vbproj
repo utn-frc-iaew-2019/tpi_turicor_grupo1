@@ -201,7 +201,8 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\javascript\home.js" />
+    <Content Include="javascript\vehiculosDisponibles.js" />
+    <Content Include="javascript\home.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
