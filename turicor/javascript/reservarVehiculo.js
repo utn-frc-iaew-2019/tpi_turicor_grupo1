@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
 
     $.ajax({
-        url: 'http://localhost:55669/api/PaisesController',
+        url: 'http://localhost:55669/api/Paises',
         success: function (respuesta) {
             console.log("exitooo");
             console.log(respuesta);

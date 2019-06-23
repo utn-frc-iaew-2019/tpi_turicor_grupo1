@@ -6,9 +6,9 @@
     <title>Vehículos Disponibles</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
 
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.4.1.min.js"></script>
@@ -44,13 +44,28 @@
     </nav>
     <h1> </h1>
     <h1>Listado de Vehículos Disponibles</h1>
-    <h1> </h1>
+    <label for="slc-pais">Seleccione el país que desea consultar: </label>
+    <select id="slc-pais">
+        <option value="-1">Seleccione un país</option>
+    </select>
+    <label for="slc-ciudad">Seleccione la ciudad que desea consultar: </label>
+    <select id="slc-ciudad">
+        <option value="-1">Seleccione una ciudad</option>
+    </select>
     <table class="table table-bordered table-striped">
-        <tr>
-            <th>Id</th>
-            <th>Patente</th>
-            
-        </tr>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Patente</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="clone">
+                <td>0</td>
+                <td>AAA 111</td>
+            </tr>
+        </tbody>
+
         <!--<tr ng-repeat="c in clientes | orderBy:'Nombre'" ng-class="c.IdEstadoCivil == 'S'?'verde':''">
             <td>{{c.Nombre}}</td>
             <td>{{c.IdEstadoCivil}}</td>

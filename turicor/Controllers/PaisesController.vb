@@ -4,15 +4,16 @@ Imports System.Web.Http
 Public Class PaisesController
     Inherits ApiController
 
-    ' GET api/<controller>
-    Public Function GetValues() As IEnumerable(Of String)
+    ' GET api/Paises
+    Public Function GetValues()
         Dim servicioPaises As New ServicioPaises
         Return servicioPaises.consultarPaises()
     End Function
 
-    ' GET api/<controller>/5
-    Public Function GetValue(ByVal id As Integer) As String
-        Return "value"
+    ' GET api/Paises/5
+    Public Function GetValue(ByVal id As Integer)
+        Dim servicioPaises As New ServicioPaises
+        Return servicioPaises.consultarCiudades(id)
     End Function
 
     ' POST api/<controller>

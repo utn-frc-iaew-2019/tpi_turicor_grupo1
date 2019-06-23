@@ -1,14 +1,15 @@
 ﻿Imports System.Net
 Imports System.Web.Http
+Imports Newtonsoft.Json
 
 Namespace Controllers
     Public Class VehiculoController
         Inherits ApiController
 
         ' GET: api/Vehiculo
-        Public Function GetValues() As IEnumerable(Of String)
+        Public Function GetValues(<FromUri()> ByVal idCiudad As Int16)
             Dim servicioVehiculo As New ServicioVehiculo
-            Return servicioVehiculo.consultarVehiculos()
+            Return servicioVehiculo.consultarVehiculos(idCiudad)
         End Function
 
         ' GET: api/Vehiculo/5
