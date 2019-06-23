@@ -12,6 +12,9 @@ Public Class ServicioVehiculo
         ' Consulta los vehiculos disponibles de la ciudad con id recibido por parametro
         Dim request As New ServicioWCF.ConsultarVehiculosRequest()
         request.IdCiudad = idCiudad
+        request.FechaHoraRetiro = DateTime.Now()
+        request.FechaHoraDevolucion = DateTime.Now().AddDays(3)
+
 
         Dim response As ServicioWCF.ConsultarVehiculosDisponiblesResponse = cliente.ConsultarVehiculosDisponibles(credenciales, request)
 
