@@ -7,12 +7,23 @@
         credenciales.Password = "AzArobmjV0"
     End Sub
 
-    Public Function consultarReservasRealizadas()
-
+    Public Function consultarReservaPorCodigo(codigoReserva)
         Dim request As New ServicioWCF.ConsultarReservasRequest()
+        request.CodigoReserva = codigoReserva
+        Dim response As ServicioWCF.ConsultarReservasResponse = cliente.ConsultarReserva(credenciales, request)
+        Return response.Reserva
+    End Function
 
-        Dim listado = cliente.ConsultarReserva(credenciales, request)
-        Return listado
+    Public Function crearNuevaReserva(idVehiculoCiudad, fechaRetiro, fechaDevolucion, apellidoNombreCliente, dniCliente, costo, precioVenta)
+        Dim request As New ServicioWCF.ReservarVehiculoRequest()
+        request.IdVehiculoCiudad = idVehiculoCiudad
+        request.FechaHoraRetiro = fechaRetiro
+        request.FechaHoraDevolucion = fechaDevolucion
+        request.ApellidoNombreCliente = apellidoNombreCliente
+        request.NroDocumentoCliente = dniCliente
+
+        Dim response = cliente.ReservarVehiculo(credenciales, request)
+        Return response.Reserva
     End Function
 
 

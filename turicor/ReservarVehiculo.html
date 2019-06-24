@@ -4,14 +4,10 @@
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="/favicon.jpg" />
     <title>Reservar Vehículo</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.4.1.min.js"></script>
-    
+
     <script src="javascript/reservarVehiculo.js"></script>
 </head>
 <body>
@@ -45,42 +41,48 @@
     <form>
         <h1> Realizar reserva de un vehículo</h1>
         <h3>Complete los siguientes datos:</h3>
-        <div class="form-group col-md-4">
-            <label for="exampleInputEmail1">Código de reserva</label>
-            <input type="email" class="form-control" id="InputCodigo" aria-describedby="emailHelp" placeholder="Ingrese Código">
 
+        <div class="form-group col-md-4">
+            <label for="txt-fecha">Fecha de reserva</label>
+            <input type="date" class="form-control" id="txt-fecha" placeholder="dd/mm/aaaa">
         </div>
         <div class="form-group col-md-4">
-            <label for="exampleInputPassword1">Fecha de reserva</label>
-            <input type="password" class="form-control" id="InputFecha" placeholder="dd/mm/aaaa">
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputState">Vendedor</label>
-            <select id="inputState" class="form-control">
-                <option selected>Elegir vendedor...</option>
-                <!--ACA VAN LOS NOMBRES DE LOS VENDEDORES CARGADOS-->
-                <!--<option>...</option>-->
+            <label for="slc-vendedor">Vendedor</label>
+            <select id="slc-vendedor" class="form-control">
+                <option value="-1" selected>Elegir vendedor...</option>
             </select>
         </div>
-        
+
         <div class="form-group col-md-4">
-            <label for="inputState">Pais</label>
-            <select id="inputState" class="form-control">
-                <option selected>Elegir pais...</option>
-                <!--ACA VAN LOS NOMBRES DE LOS PAISES CARGADOS-->
-                <!--<option>...</option>-->
+            <label for="slc-pais">Pais</label>
+            <select id="slc-pais" class="form-control">
+                <option value="-1" selected>Elegir pais...</option>
             </select>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="inputState">Ciudad</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Elegir ciudad...</option>
-                    <!--ACA VAN LOS NOMBRES DE LAS CIUDADES CARGADAS-->
-                    <!--<option>...</option>-->
-                </select>
-                </div>
-                <H1></H1>
-                <button type="submit" class="btn btn-primary">Reservar</button>
-</form>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="slc-ciudad">Ciudad</label>
+            <select id="slc-ciudad" class="form-control">
+                <option value="-1" selected>Elegir ciudad...</option>
+            </select>
+        </div>
+        <div class="col-sm-12" id="contenedor-tbl-vehiculos">
+            <label for="tbl-vehiculos">Vehículo a reservar</label>
+            <table class="table table-bordered table-striped" id="tbl-vehiculos">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Puntaje</th>
+                        <th>Puertas</th>
+                        <th>Disponibles</th>
+                        <th>Precio Alquiler</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </form>
 </body>
 </html>

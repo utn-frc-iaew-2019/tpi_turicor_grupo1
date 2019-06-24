@@ -11,7 +11,7 @@
         }
         $select.focus().trigger("change");
     }
-    // Función: Carga los veh{iculos a la tabla}
+    // Función: Carga los vehículos a la tabla}
     function cargarTablaVehiculos(vehiculos) {
         var body = $("#tbl-vehiculos tbody");
         body.empty();
@@ -61,7 +61,7 @@
         },
         error: function (e) {
             $("#slc-pais").empty();
-            $("#slc-pais").append('<option value=" - 1">Seleccione un país</option>');
+            $("#slc-pais").append('<option value=" - 1">Elegir país...</option>');
 
             console.log("Error al obtener paises: ", e);
         }
@@ -85,7 +85,7 @@
         } else {
             // Limpia el select de ciudades
             $("#slc-ciudad").empty();
-            $("#slc-ciudad").append('<option value=" - 1">Seleccione una ciudad</option>');
+            $("#slc-ciudad").append('<option value=" - 1">Elegir ciudad...</option>');
         }
     });
 
