@@ -41,30 +41,44 @@
     <form>
         <h1> Realizar reserva de un vehículo</h1>
         <h3>Complete los siguientes datos:</h3>
+        <h1></h1>
 
+       
         <div class="form-group col-md-4">
+            <label for="txt-fecha">Nombre del cliente</label>
+            <input class="form-control " type="search" placeholder="Ingrese nombre de cliente">
+
+            <label for="txt-fecha">DNI del cliente</label>
+            <input class="form-control " type="search" placeholder="Ingrese DNI de cliente">
+
+            <label for="txt-fecha">Lugar de retiro</label>
+            <input class="form-control " type="search" placeholder="Ingrese lugar de retiro">
+
+            <label for="txt-fecha">Lugar de devolución</label>
+            <input class="form-control " type="search" placeholder="Ingrese lugar de devolución">
+
+            <label for="txt-fecha">Fecha de devolución</label>
+            <input type="date" class="form-control" id="txt-fecha" placeholder="dd/mm/aaaa">
+
             <label for="txt-fecha">Fecha de reserva</label>
             <input type="date" class="form-control" id="txt-fecha" placeholder="dd/mm/aaaa">
-        </div>
-        <div class="form-group col-md-4">
+
             <label for="slc-vendedor">Vendedor</label>
             <select id="slc-vendedor" class="form-control">
                 <option value="-1" selected>Elegir vendedor...</option>
             </select>
-        </div>
 
-        <div class="form-group col-md-4">
             <label for="slc-pais">Pais</label>
             <select id="slc-pais" class="form-control">
                 <option value="-1" selected>Elegir pais...</option>
             </select>
-        </div>
-        <div class="form-group col-md-4">
+
             <label for="slc-ciudad">Ciudad</label>
             <select id="slc-ciudad" class="form-control">
                 <option value="-1" selected>Elegir ciudad...</option>
             </select>
         </div>
+   
         <div class="col-sm-12" id="contenedor-tbl-vehiculos">
             <label for="tbl-vehiculos">Vehículo a reservar</label>
             <table class="table table-bordered table-striped" id="tbl-vehiculos">
