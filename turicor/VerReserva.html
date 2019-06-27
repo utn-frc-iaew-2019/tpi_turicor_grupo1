@@ -4,12 +4,8 @@
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="/favicon.jpg" />
     <title>Ver Reserva</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.4.1.min.js"></script>
 
     <script src="javascript/verReserva.js"></script>
@@ -42,43 +38,38 @@
         </div>
     </nav>
     <h1></h1>
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Ingrese código de reserva" aria-label="Buscar">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ver Reserva</button>
-    </form>
-    <table class="table table-bordered" >
+    <div class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Ingrese código de reserva" aria-label="Buscar" id="txt-codigo-reserva">
+        <button class="btn btn-outline-success my-2 my-sm-0" id="btn-buscar">Ver Reserva</button>
+    </div>
+    <table class="table table-bordered">
         <tr>
             <td>Identificador</td>
-            <td>Ejemplo para visualizar datos</td>
+            <td id="lbl-identificador"></td>
         </tr>
         <tr>
             <td>Código de reserva</td>
-            <!--Aca se agregaria el dato-->
-            <!--<td>{{reserva.CodigoReserva}}</td>-->
+            <td id="lbl-codigo-reserva"></td>
         </tr>
         <tr>
             <td>Fecha de reserva</td>
+            <td id="lbl-fecha-reserva"></td>
+        </tr>
+        <tr>
+            <td>Fecha de devolución</td>
+            <td id="lbl-fecha-devolucion"></td>
         </tr>
         <tr>
             <td>Cliente</td>
+            <td id="lbl-cliente"></td>
         </tr>
         <tr>
             <td>Vendedor</td>
+            <td id="txt-vendedor"></td>
         </tr>
         <tr>
-            
-
-            
-
-            <td>
-
-Costo
-            
-            </td>
-            
-
-            
-
+            <td>Costo</td>
+            <td id="txt-costo"></td>
         </tr>
         <tr>
             <td>Precio de venta</td>
@@ -94,12 +85,12 @@ Costo
         </tr>
         <!--ACA SE CARGARIAN LOS DATOS DE LA RESERVA COMENZANDO DESDE LA 2DA COLUMNA (?)-->
         <!--<tr>
-            <td>{{c.Nombre}}</td>
-            <td>{{c.IdEstadoCivil}}</td>
-            <td>{{c.FechaNacimiento | date : 'd/M/yy'}}</td>
-            <td>{{c.IdSexo}}</td>
-            <td>{{c.Localidad}}</td>
-        </tr>-->
+        <td>{{c.Nombre}}</td>
+        <td>{{c.IdEstadoCivil}}</td>
+        <td>{{c.FechaNacimiento | date : 'd/M/yy'}}</td>
+        <td>{{c.IdSexo}}</td>
+        <td>{{c.Localidad}}</td>
+    </tr>-->
     </table>
 </body>
 </html>

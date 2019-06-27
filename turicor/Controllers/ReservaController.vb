@@ -17,9 +17,27 @@ Public Class ReservaController
     End Function
 
     ' POST api/Reserva
-    Public Function PostValue(<FromBody()> ByVal idVehiculoCiudad, <FromBody()> ByVal fechaRetiro, <FromBody()> ByVal fechaDevolucion, <FromBody()> ByVal apellidoNombreCliente, <FromBody()> ByVal dniCliente, <FromBody()> ByVal costo, <FromBody()> ByVal precioVenta)
+    Public Function PostValue(<FromBody()> ByVal reserva As Reserva)
+
+
+
+        ' **************** Acá crear el cliente y la reserva en la BD nuestra **************************
+        ' Este controlador recibe los parámetros que se enviaron en el body y los pone en un objeto de la clase Reserva
+
+
+
+
+        ' Crea una nueva reserva en el servicio WCF y retorna el código de reserva
         Dim servicioReserva As New ServicioReserva
-        Return servicioReserva.crearNuevaReserva(idVehiculoCiudad, fechaRetiro, fechaDevolucion, apellidoNombreCliente, dniCliente, costo, precioVenta)
+        Return servicioReserva.crearNuevaReserva(reserva.idVehiculoCiudad,
+                                                 reserva.fechaRetiro,
+                                                 reserva.fechaDevolucion,
+                                                 reserva.apellidoNombreCliente,
+                                                 reserva.dniCliente,
+                                                 reserva.costo,
+                                                 reserva.precioVenta,
+                                                 reserva.lugarRetiro,
+                                                 reserva.lugarDevolucion)
     End Function
 
     ' PUT api/Reserva/5
@@ -28,7 +46,8 @@ Public Class ReservaController
     End Sub
 
     ' DELETE api/Reserva/5
-    Public Sub DeleteValue(ByVal id As Integer)
-
-    End Sub
+    Public Function DeleteValue(ByVal id As String)
+        Dim servicioReserva As New ServicioReserva
+        Return servicioReserva.cancelarReservaPorCodigo(id)
+    End Function
 End Class
