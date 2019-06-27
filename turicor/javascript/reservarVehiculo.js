@@ -16,17 +16,20 @@
     function agregarEventoAbotonesReservar() {
         // Evento: Valida que se haya ingresado todo y realiza la reserva del vehículo
         $(".btn-reservar").click(function () {
-            console.log("AA hizo click");
+            console.log("AA hizo click en Reservar");
             // ---------------------------------------------------------------------------------
             // --------- FALTA: Validar que se hayan ingresado todos los datos -----------------
             // ---------------------------------------------------------------------------------
             var idVehiculoCiudadValidado = $(this).data('id');
-            var fechaRetiroValidada = "12/01/2019";
+            var fechaRetiroValidada = "12/01/2019";  // $("#txt-fecha").val();
             var fechaDevolucionValidada = "13/01/2019";
+            var lugarRetiroValidado = "aaa";
+            var lugarDevolucionValidado = "bbb";
             var apellidoNombreClienteValidado = " Juan Perez";
             var dniClienteValidado = "36352689";
             var costoValidado = "100";
             var precioVentaValidado = "120";
+            var idVendedorSeleccionado = $("#slc-vendedor").val();
 
             $.ajax({
                 type: "POST",
@@ -35,10 +38,13 @@
                     idVehiculoCiudad: idVehiculoCiudadValidado,
                     fechaRetiro: fechaRetiroValidada,
                     fechaDevolucion: fechaDevolucionValidada,
+                    lugarRetiro: lugarRetiroValidado,
+                    lugarDevolucion: lugarDevolucionValidado,
                     apellidoNombreCliente: apellidoNombreClienteValidado,
                     dniCliente: dniClienteValidado,
                     costo: costoValidado,
-                    precioVenta: precioVentaValidado
+                    precioVenta: precioVentaValidado,
+                    idVendedor: idVendedorSeleccionado
                 },
                 success: function (respuesta) {
                     console.log("exitoo");
