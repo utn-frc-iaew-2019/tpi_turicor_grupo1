@@ -21,15 +21,17 @@
             // --------- FALTA: Validar que se hayan ingresado todos los datos -----------------
             // ---------------------------------------------------------------------------------
             var idVehiculoCiudadValidado = $(this).data('id');
-            var fechaRetiroValidada = "12/01/2019";  // $("#txt-fecha").val();
-            var fechaDevolucionValidada = "13/01/2019";
-            var lugarRetiroValidado = "aaa";
-            var lugarDevolucionValidado = "bbb";
-            var apellidoNombreClienteValidado = " Juan Perez";
-            var dniClienteValidado = "36352689";
-            var costoValidado = "100";
-            var precioVentaValidado = "120";
+            var fechaRetiroValidada = $("#fechaReserva").val();
+            var fechaDevolucionValidada = $("#fechaDevolucion").val();
+            var lugarRetiroValidado = $("#lugarRetiro").val();
+            var lugarDevolucionValidado = $("#lugarDevolucion").val();
+            var apellidoNombreClienteValidado = $("#nombreCliente").val();
+            var dniClienteValidado = $("#dniCliente").val();
+            var costoValidado = $("#costo").val();
+            var precioVentaValidado = $("#precioVenta").val();
             var idVendedorSeleccionado = $("#slc-vendedor").val();
+            var idPaisSeleccionado = $("#slc-pais").val();
+            var idCiudadSeleccionada = $("#slc-ciudad").val(); 
 
             $.ajax({
                 type: "POST",
@@ -44,7 +46,9 @@
                     dniCliente: dniClienteValidado,
                     costo: costoValidado,
                     precioVenta: precioVentaValidado,
-                    idVendedor: idVendedorSeleccionado
+                    idVendedor: idVendedorSeleccionado,
+                    idPais: idPaisSeleccionado,
+                    idCiudad : idCiudadSeleccionada
                 },
                 success: function (respuesta) {
                     console.log("exitoo");
