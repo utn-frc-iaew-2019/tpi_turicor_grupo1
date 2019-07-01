@@ -18,16 +18,12 @@ Public Class ReservaController
 
     ' POST api/Reserva
     Public Function PostValue(<FromBody()> ByVal reserva As Reserva)
-
-        ' **************** Acá crear el cliente y la reserva en la BD nuestra **************************
         ' Este controlador recibe los parámetros que se enviaron en el body y los pone en un objeto de la clase Reserva
         Dim idVendedor = reserva.idVendedorP
 
-
-
         ' Crea una nueva reserva en el servicio WCF y retorna el código de reserva
         Dim servicioReserva As New ServicioReserva
-        Return servicioReserva.crearNuevaReserva(reserva.IdVechiculoCiudad,
+        Return servicioReserva.crearNuevaReserva(reserva.IdVehiculoCiudadP,
                                                  reserva.FechaRetiroP,
                                                  reserva.FechaDevolucionP,
                                                  reserva.apellidoNombreClienteP,

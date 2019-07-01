@@ -21,11 +21,11 @@
         request.FechaHoraDevolucion = fechaDevolucion
         request.ApellidoNombreCliente = apellidoNombreCliente
         request.NroDocumentoCliente = dniCliente
-        Dim lugarDevol As ServicioWCF.LugarRetiroDevolucion = lugarDevolucion
-        Dim lugarRet As ServicioWCF.LugarRetiroDevolucion = lugarRetiro
 
-        request.LugarDevolucion = lugarDevol
-        request.LugarRetiro = lugarRet
+        Dim ld As ServicioWCF.LugarRetiroDevolucion = lugarDevolucion
+        Dim lr As ServicioWCF.LugarRetiroDevolucion = lugarRetiro
+        request.LugarDevolucion = ld
+        request.LugarRetiro = lr
 
         Dim response = cliente.ReservarVehiculo(credenciales, request)
         Return response.Reserva

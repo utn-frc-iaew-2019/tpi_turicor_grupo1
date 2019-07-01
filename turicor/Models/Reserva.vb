@@ -1,7 +1,7 @@
 ﻿Public Class Reserva
 
     Private IdVehiculoCiudad As Integer
-    Public Property IdVechiculoCiudad() As Integer
+    Public Property IdVehiculoCiudadP() As Integer
         Get
             Return IdVehiculoCiudad
         End Get

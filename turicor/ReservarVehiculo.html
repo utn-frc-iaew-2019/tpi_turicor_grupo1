@@ -45,23 +45,30 @@
 
        
         <div class="form-group col-md-4">
-            <label for="txt-fecha">Nombre del cliente</label>
-            <input class="form-control " type="search" placeholder="Ingrese nombre de cliente">
+            <label for="txt-nombre-cliente">Nombre y apellido del cliente</label>
+            <input class="form-control " type="search" id="txt-nombre-cliente" placeholder="Ingrese nombre y apellido del cliente">
 
-            <label for="txt-fecha">DNI del cliente</label>
-            <input class="form-control " type="search" placeholder="Ingrese DNI de cliente">
+            <label for="txt-dni-cliente">DNI del cliente</label>
+            <input class="form-control " type="search" id="txt-dni-cliente" placeholder="Ingrese DNI de cliente">
 
-            <label for="txt-fecha">Lugar de retiro</label>
-            <input class="form-control " type="search" placeholder="Ingrese lugar de retiro">
+            <label for="slc-lugar-retiro">Lugar de retiro</label>
+            <select id="slc-lugar-retiro" class="form-control">
+                <option value="0" selected>Aeropuerto</option>
+                <option value="2">Hotel</option>
+                <option value="1">Terminal</option>
+            </select>
 
-            <label for="txt-fecha">Lugar de devolución</label>
-            <input class="form-control " type="search" placeholder="Ingrese lugar de devolución">
+            <label for="slc-lugar-devolucion">Lugar de devolución</label>
+            <select id="slc-lugar-devolucion" class="form-control">
+                <option value="0" selected>Aeropuerto</option>
+                <option value="2">Hotel</option>
+                <option value="1">Terminal</option>
+            </select>
+            <label for="txt-fecha-reserva">Fecha de reserva</label>
+            <input type="date" class="form-control" id="txt-fecha-reserva" placeholder="dd/mm/aaaa">
 
-            <label for="txt-fecha">Fecha de devolución</label>
-            <input type="date" class="form-control" id="txt-fecha" placeholder="dd/mm/aaaa">
-
-            <label for="txt-fecha">Fecha de reserva</label>
-            <input type="date" class="form-control" id="txt-fecha" placeholder="dd/mm/aaaa">
+            <label for="txt-fecha-devolucion">Fecha de devolución</label>
+            <input type="date" class="form-control" id="txt-fecha-devolucion" placeholder="dd/mm/aaaa">
 
             <label for="slc-vendedor">Vendedor</label>
             <select id="slc-vendedor" class="form-control">

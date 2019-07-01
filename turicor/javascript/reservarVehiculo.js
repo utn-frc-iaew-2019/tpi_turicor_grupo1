@@ -14,37 +14,34 @@
     }
 
     function agregarEventoAbotonesReservar() {
-        // Evento: Valida que se haya ingresado todo y realiza la reserva del vehículo
+        // Evento: Realiza la reserva del vehículo
         $(".btn-reservar").click(function () {
-            console.log("AA hizo click en Reservar");
-            // ---------------------------------------------------------------------------------
-            // --------- FALTA: Validar que se hayan ingresado todos los datos -----------------
-            // ---------------------------------------------------------------------------------
+           
             var idVehiculoCiudadValidado = $(this).data('id');
-            var fechaRetiroValidada = "12/01/2019";  // $("#txt-fecha").val();
-            var fechaDevolucionValidada = "13/01/2019";
-            var lugarRetiroValidado = "aaa";
-            var lugarDevolucionValidado = "bbb";
-            var apellidoNombreClienteValidado = " Juan Perez";
-            var dniClienteValidado = "36352689";
-            var costoValidado = "100";
-            var precioVentaValidado = "120";
-            var idVendedorSeleccionado = $("#slc-vendedor").val();
+            var fechaRetiroValidada = $("#txt-fecha-reserva").val();
+            var fechaDevolucionValidada = $("#txt-fecha-devolucion").val();
+            var lugarRetiroValidado = $("#slc-lugar-retiro").val();
+            var lugarDevolucionValidado = $("#slc-lugar-devolucion").val();
+            var apellidoNombreClienteValidado = $("#txt-nombre-cliente").val();
+            var dniClienteValidado = $("#txt-dni-cliente").val();
+            var costoPorDia = $(this).data('costo');
+            var precioVentaValidado = costoPorDia + (0.2 * costoPorDia);
+            var idVendedorSeleccionado = "1" //$("#slc-vendedor").val();
 
             $.ajax({
                 type: "POST",
                 url: 'http://localhost:55669/api/Reserva',
                 data: {
-                    idVehiculoCiudad: idVehiculoCiudadValidado,
-                    fechaRetiro: fechaRetiroValidada,
-                    fechaDevolucion: fechaDevolucionValidada,
-                    lugarRetiro: lugarRetiroValidado,
-                    lugarDevolucion: lugarDevolucionValidado,
-                    apellidoNombreCliente: apellidoNombreClienteValidado,
-                    dniCliente: dniClienteValidado,
-                    costo: costoValidado,
-                    precioVenta: precioVentaValidado,
-                    idVendedor: idVendedorSeleccionado
+                    idVehiculoCiudadP: idVehiculoCiudadValidado,
+                    fechaRetiroP: fechaRetiroValidada,
+                    fechaDevolucionP: fechaDevolucionValidada,
+                    lugarRetiroP: lugarRetiroValidado,
+                    lugarDevolucionP: lugarDevolucionValidado,
+                    apellidoNombreClienteP: apellidoNombreClienteValidado,
+                    dniClienteP: dniClienteValidado,
+                    costoP: costoPorDia,
+                    precioVentaP: precioVentaValidado,
+                    idVendedorP: idVendedorSeleccionado
                 },
                 success: function (respuesta) {
                     console.log("exitoo");
@@ -88,7 +85,7 @@
             precioTD.appendChild(document.createTextNode("$" + precioAlquiler));
             
             var botonTD = document.createElement("td");
-            botonTD.innerHTML = '<button class="btn btn-primary btn-reservar" data-id="' + vehiculos[i].VehiculoCiudadId + '">Reservar</button>' ;
+            botonTD.innerHTML = '<button class="btn btn-primary btn-reservar" data-id="' + vehiculos[i].VehiculoCiudadId + '" data-costo="' + vehiculos[i].PrecioPorDia + '">Reservar</button>' ;
             
             fila.append(id);
             fila.append(marca);
