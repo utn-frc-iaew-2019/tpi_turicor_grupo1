@@ -18,8 +18,8 @@
         $(".btn-reservar").click(function () {
            
             var idVehiculoCiudadValidado = $(this).data('id');
-            var fechaRetiroValidada = $("#txt-fecha-reserva").val();
-            var fechaDevolucionValidada = $("#txt-fecha-devolucion").val();
+            var fechaRetiroValidada = $("#txt-fecha-reserva").val() + "T00:00:00";
+            var fechaDevolucionValidada = $("#txt-fecha-devolucion").val() + "T00:00:00";
             var lugarRetiroValidado = $("#slc-lugar-retiro").val();
             var lugarDevolucionValidado = $("#slc-lugar-devolucion").val();
             var apellidoNombreClienteValidado = $("#txt-nombre-cliente").val();
