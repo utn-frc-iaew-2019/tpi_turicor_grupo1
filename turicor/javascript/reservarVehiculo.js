@@ -100,6 +100,7 @@
         }
         agregarEventoAbotonesReservar();
     }
+    
 
     // Setup: Consulta todos los paises para cargar el select
     $.ajax({
@@ -155,6 +156,11 @@
                 success: function (respuesta) {
                     // Carga todos los datos de los autos en la tabla
                     cargarTablaVehiculos(respuesta);
+
+                    // Muestra todo el formulario y la tabla y oculta el cargando
+                    $("#div-formulario").removeClass("d-none");
+                    $("#contenedor-tbl-vehiculos").removeClass("d-none");
+                    $(".loading").remove();
                 },
                 error: function (e) {
                     console.log("Error al obtener vehiculos disponibles: ", e);
