@@ -172,6 +172,7 @@
     <Content Include="favicon.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Home.html" />
+    <Content Include="imagenes\fondo_home.jpg" />
     <Content Include="imagenes\loader-small.gif" />
     <Content Include="imagenes\loader.gif" />
     <Content Include="javascript\reservarVehiculo.js" />
