@@ -1,5 +1,7 @@
 ﻿Public Class Reserva
 
+
+
     Private IdVehiculoCiudad As Integer
     Public Property IdVehiculoCiudadP() As Integer
         Get
@@ -96,6 +98,26 @@
         End Get
         Set(ByVal value As Integer)
             idVendedor = value
+        End Set
+    End Property
+
+    Private idPais As String
+    Public Property idPaisP() As String
+        Get
+            Return idPais
+        End Get
+        Set(ByVal value As String)
+            idPais = value
+        End Set
+    End Property
+
+    Private idCiudad As String
+    Public Property idCiudadP() As String
+        Get
+            Return idCiudad
+        End Get
+        Set(ByVal value As String)
+            idCiudad = value
         End Set
     End Property
 End Class
