@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home </a>
+                    <a class="nav-link" href="Home.html">Home </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="VehiculosDisponibles.html">Vehículos Disponibles</a>
@@ -40,52 +40,57 @@
 
     <form>
         <h1> Realizar reserva de un vehículo</h1>
-        <h3>Complete los siguientes datos:</h3>
-        <h1></h1>
+        <div class="loading col-sm-12"><img src="imagenes/loader.gif" alt="loading" /> Un momento, por favor...</div>
 
        
         <div class="form-group col-md-4">
-            <label for="txt-fecha">Nombre y apellido del cliente</label>
-            <input class="form-control" id="nombreCliente" type="search" placeholder="Ingrese nombre de cliente">
+            <label for="txt-fecha">Nombre del cliente</label>
+            <input class="form-control " type="search" placeholder="Ingrese nombre de cliente">
 
             <label for="txt-fecha">DNI del cliente</label>
-            <input class="form-control" id="dniCliente" type="search" placeholder="Ingrese DNI de cliente">
+            <input class="form-control " type="search" placeholder="Ingrese DNI de cliente">
 
             <label for="txt-fecha">Lugar de retiro</label>
-            <input class="form-control" id="lugarRetiro" type="search" placeholder="Ingrese lugar de retiro">
+            <input class="form-control " type="search" placeholder="Ingrese lugar de retiro">
 
             <label for="txt-fecha">Lugar de devolución</label>
-            <input class="form-control " id="lugarDevolucion" type="search" placeholder="Ingrese lugar de devolución">
+            <input class="form-control " type="search" placeholder="Ingrese lugar de devolución">
 
             <label for="txt-fecha">Fecha de devolución</label>
-            <input type="date" class="form-control" id="fechaDevolucion" placeholder="dd/mm/aaaa">
+            <input type="date" class="form-control" id="txt-fecha" placeholder="dd/mm/aaaa">
 
             <label for="txt-fecha">Fecha de reserva</label>
-            <input type="date" class="form-control" id="fechaReserva" placeholder="dd/mm/aaaa">
+            <input type="date" class="form-control" id="txt-fecha" placeholder="dd/mm/aaaa">
 
-            <label for="txt-fecha">Costo</label>
-            <input type="date" class="form-control" id="costo" placeholder="Ingrese costo">
+                <label for="slc-lugar-devolucion">Lugar de devolución</label>
+                <select id="slc-lugar-devolucion" class="form-control" required>
+                    <option value="0" selected>Aeropuerto</option>
+                    <option value="2">Hotel</option>
+                    <option value="1">Terminal</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-4 offset-1">
+                <label for="txt-fecha-reserva" style="margin-top:40px;">Fecha de reserva</label>
+                <input type="date" class="form-control" id="txt-fecha-reserva" placeholder="dd/mm/aaaa" required>
 
-            <label for="txt-fecha">Precio de venta</label>
-            <input type="date" class="form-control" id="precioVenta" placeholder="Ingrese precio de venta">
+                <label for="txt-fecha-devolucion">Fecha de devolución</label>
+                <input type="date" class="form-control" id="txt-fecha-devolucion" placeholder="dd/mm/aaaa" required>
 
-            <label for="slc-vendedor">Vendedor</label>
-            <select id="slc-vendedor" class="form-control">
-                <option value="-1" selected>Elegir vendedor...</option>
-            </select>
+                <label for="slc-pais">Pais</label>
+                <select id="slc-pais" class="form-control">
+                    <option value="-1" selected>Elegir pais...</option>
+                </select>
 
-            <label for="slc-pais">Pais</label>
-            <select id="slc-pais" class="form-control">
-                <option value="-1" selected>Elegir pais...</option>
-            </select>
+                <label for="slc-ciudad">Ciudad</label>
+                <select id="slc-ciudad" class="form-control">
+                    <option value="-1" selected>Elegir ciudad...</option>
+                </select>
+            </div>
 
-            <label for="slc-ciudad">Ciudad</label>
-            <select id="slc-ciudad" class="form-control">
-                <option value="-1" selected>Elegir ciudad...</option>
-            </select>
+
         </div>
-   
-        <div class="col-sm-12" id="contenedor-tbl-vehiculos">
+
+        <div class="col-sm-12 d-none" id="contenedor-tbl-vehiculos">
             <label for="tbl-vehiculos">Vehículo a reservar</label>
             <table class="table table-bordered table-striped" id="tbl-vehiculos">
                 <thead>

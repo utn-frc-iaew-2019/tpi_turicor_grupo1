@@ -85,54 +85,16 @@
 
     End Function
 
-    Public Sub crearReserva(codigo, nombre, dni, idVendedor, costo, precioVenta, idVehiculoCiudad, fechaRetiro, idPais, idCiudad)
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
-        Dim id As Integer
-        id = Int((10000 * Rnd()) + 1)
-
-        Dim idCliente As Integer
-        idCliente = crearCliente(nombre, dni)
-        conexion.ConnectionString = cadena_conexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-
-        Dim sql As String = ""
-
-
-        sql = "INSERT INTO Reservas ("
-        sql &= "id, codigoReserva, fechaReserva, idCliente, idVendedor, costo, precioVenta, idVehiculoCiudad, idCiudad, idPais ) "
-        sql &= " VALUES ("
-        sql &= id
-        sql &= " ," & codigo
-        sql &= " ," & idCliente
-        sql &= " ," & idVendedor
-        sql &= " ," & costo
-        sql &= " ," & precioVenta
-        sql &= " ," & idVehiculoCiudad
-        sql &= " ," & idCiudad
-        sql &= " ," & idPais
-        sql &= ")"
-
-        cmd.CommandText = sql
-        cmd.ExecuteNonQuery()
-        conexion.Close()
-
-    End Sub
-
     Public Function crearNuevaReserva(idVehiculoCiudad, fechaRetiro, fechaDevolucion, apellidoNombreCliente, dniCliente, costo, precioVenta, lugarRetiro, lugarDevolucion)
         Dim request As New ServicioWCF.ReservarVehiculoRequest()
-        request.IdVehiculoCiudad = idVehiculoCiudad
-        request.FechaHoraRetiro = fechaRetiro
-        request.FechaHoraDevolucion = fechaDevolucion
-        request.ApellidoNombreCliente = apellidoNombreCliente
-        request.NroDocumentoCliente = dniCliente
-        Dim lugarDevol As ServicioWCF.LugarRetiroDevolucion = lugarDevolucion
-        Dim lugarRet As ServicioWCF.LugarRetiroDevolucion = lugarRetiro
+        request.IdVehiculoCiudad = reserva.IdVehiculoCiudadP
+        request.FechaHoraRetiro = reserva.FechaRetiroP
+        request.FechaHoraDevolucion = reserva.FechaDevolucionP
+        request.ApellidoNombreCliente = reserva.apellidoNombreClienteP
+        request.NroDocumentoCliente = reserva.dniClienteP
 
-        request.LugarDevolucion = lugarDevol
-        request.LugarRetiro = lugarRet
+        request.LugarDevolucion = LugarEnumMapping(reserva.lugarDevolucionP)
+        request.LugarRetiro = LugarEnumMapping(reserva.lugarRetiroP)
 
         Dim response = cliente.ReservarVehiculo(credenciales, request)
         Return response.Reserva
@@ -144,8 +106,5 @@
         Dim response As ServicioWCF.CancelarReservaResponse = cliente.CancelarReserva(credenciales, request)
         Return response.Reserva
     End Function
-
-
-
 
 End Class

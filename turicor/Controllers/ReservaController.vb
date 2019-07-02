@@ -17,7 +17,7 @@ Public Class ReservaController
     End Function
 
     ' POST api/Reserva
-    Public Sub PostValue(<FromBody()> ByVal reserva As Reserva)
+    Public Function PostValue(<FromBody()> ByVal reserva As Reserva)
 
         ' **************** Acá crear el cliente y la reserva en la BD nuestra **************************
         ' Este controlador recibe los parámetros que se enviaron en el body y los pone en un objeto de la clase Reserva
@@ -25,25 +25,12 @@ Public Class ReservaController
 
 
         Dim idVendedor = reserva.idVendedorP
-        Dim idVehiculoCiudad = reserva.IdVechiculoCiudad
-        Dim fechaRetiro = reserva.FechaRetiroP
-        Dim fechaDevolucion = reserva.FechaDevolucionP
-        Dim lugarRetiro = reserva.lugarRetiroP
-        Dim lugarDevolucion = reserva.lugarDevolucionP
-        Dim apellidoNombreCliente = reserva.apellidoNombreClienteP
-        Dim dniCliente = reserva.dniClienteP
-        Dim costo = reserva.costoP
-        Dim precioVenta = reserva.precioVentaP
-        Dim idPais = reserva.idPaisP
-        Dim idCiudad = reserva.idCiudadP
+
 
 
         ' Crea una nueva reserva en el servicio WCF y retorna el código de reserva
         Dim servicioReserva As New ServicioReserva
-        ' Le pasa los datos del front 
-        servicioReserva.crearCliente(apellidoNombreCliente, dniCliente)
-
-        Dim codigoReserva = servicioReserva.crearNuevaReserva(reserva.IdVechiculoCiudad,
+        Return servicioReserva.crearNuevaReserva(reserva.IdVechiculoCiudad,
                                                  reserva.FechaRetiroP,
                                                  reserva.FechaDevolucionP,
                                                  reserva.apellidoNombreClienteP,
@@ -52,10 +39,7 @@ Public Class ReservaController
                                                  reserva.precioVentaP,
                                                  reserva.lugarRetiroP,
                                                  reserva.lugarDevolucionP)
-
-        servicioReserva.crearReserva(codigoReserva, apellidoNombreCliente, dniCliente, idVendedor, costo, precioVenta, idVehiculoCiudad, fechaRetiro, idPais, idCiudad)
-
-    End Sub
+    End Function
 
     ' PUT api/Reserva/5
     Public Sub PutValue(ByVal id As Integer, <FromBody()> ByVal value As String)

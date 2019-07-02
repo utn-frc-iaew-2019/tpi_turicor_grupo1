@@ -14,24 +14,19 @@
     }
 
     function agregarEventoAbotonesReservar() {
-        // Evento: Valida que se haya ingresado todo y realiza la reserva del vehículo
+        // Evento: Realiza la reserva del vehículo
         $(".btn-reservar").click(function () {
-            console.log("AA hizo click en Reservar");
-            // ---------------------------------------------------------------------------------
-            // --------- FALTA: Validar que se hayan ingresado todos los datos -----------------
-            // ---------------------------------------------------------------------------------
+           
             var idVehiculoCiudadValidado = $(this).data('id');
-            var fechaRetiroValidada = $("#fechaReserva").val();
-            var fechaDevolucionValidada = $("#fechaDevolucion").val();
-            var lugarRetiroValidado = $("#lugarRetiro").val();
-            var lugarDevolucionValidado = $("#lugarDevolucion").val();
-            var apellidoNombreClienteValidado = $("#nombreCliente").val();
-            var dniClienteValidado = $("#dniCliente").val();
-            var costoValidado = $("#costo").val();
-            var precioVentaValidado = $("#precioVenta").val();
+            var fechaRetiroValidada = "12/01/2019";  // $("#txt-fecha").val();
+            var fechaDevolucionValidada = "13/01/2019";
+            var lugarRetiroValidado = "aaa";
+            var lugarDevolucionValidado = "bbb";
+            var apellidoNombreClienteValidado = " Juan Perez";
+            var dniClienteValidado = "36352689";
+            var costoValidado = "100";
+            var precioVentaValidado = "120";
             var idVendedorSeleccionado = $("#slc-vendedor").val();
-            var idPaisSeleccionado = $("#slc-pais").val();
-            var idCiudadSeleccionada = $("#slc-ciudad").val(); 
 
             $.ajax({
                 type: "POST",
@@ -46,9 +41,7 @@
                     dniCliente: dniClienteValidado,
                     costo: costoValidado,
                     precioVenta: precioVentaValidado,
-                    idVendedor: idVendedorSeleccionado,
-                    idPais: idPaisSeleccionado,
-                    idCiudad : idCiudadSeleccionada
+                    idVendedor: idVendedorSeleccionado
                 },
                 success: function (respuesta) {
                     console.log("exitoo");
@@ -92,7 +85,7 @@
             precioTD.appendChild(document.createTextNode("$" + precioAlquiler));
             
             var botonTD = document.createElement("td");
-            botonTD.innerHTML = '<button class="btn btn-primary btn-reservar" data-id="' + vehiculos[i].VehiculoCiudadId + '">Reservar</button>' ;
+            botonTD.innerHTML = '<button class="btn btn-primary btn-reservar" data-id="' + vehiculos[i].VehiculoCiudadId + '" data-costo="' + vehiculos[i].PrecioPorDia + '">Reservar</button>' ;
             
             fila.append(id);
             fila.append(marca);
@@ -107,6 +100,7 @@
         }
         agregarEventoAbotonesReservar();
     }
+    
 
     // Setup: Consulta todos los paises para cargar el select
     $.ajax({
@@ -162,6 +156,11 @@
                 success: function (respuesta) {
                     // Carga todos los datos de los autos en la tabla
                     cargarTablaVehiculos(respuesta);
+
+                    // Muestra todo el formulario y la tabla y oculta el cargando
+                    $("#div-formulario").removeClass("d-none");
+                    $("#contenedor-tbl-vehiculos").removeClass("d-none");
+                    $(".loading").remove();
                 },
                 error: function (e) {
                     console.log("Error al obtener vehiculos disponibles: ", e);
