@@ -44,7 +44,7 @@
             ' reserva.nombreVendedor = tabla.Rows(c)(5)
             reserva.costoP = tabla.Rows(c)(6)
             reserva.precioVentaP = tabla.Rows(c)(7)
-            reserva.IdVechiculoCiudad = tabla.Rows(c)(8)
+            reserva.IdVehiculoCiudadP = tabla.Rows(c)(8)
             reserva.idCiudadP = tabla.Rows(c)(9)
             reserva.idPaisP = tabla.Rows(c)(10)
 
@@ -85,7 +85,7 @@
 
     End Function
 
-    Public Function crearNuevaReserva(idVehiculoCiudad, fechaRetiro, fechaDevolucion, apellidoNombreCliente, dniCliente, costo, precioVenta, lugarRetiro, lugarDevolucion)
+    Public Function crearNuevaReserva(reserva As Reserva)
         Dim request As New ServicioWCF.ReservarVehiculoRequest()
         request.IdVehiculoCiudad = reserva.IdVehiculoCiudadP
         request.FechaHoraRetiro = reserva.FechaRetiroP
@@ -98,6 +98,19 @@
 
         Dim response = cliente.ReservarVehiculo(credenciales, request)
         Return response.Reserva
+    End Function
+
+    Private Function LugarEnumMapping(lugar As String) As ServicioWCF.LugarRetiroDevolucion
+        Select Case (lugar)
+            Case "Hotel"
+                Return ServicioWCF.LugarRetiroDevolucion.Hotel
+            Case "Aeropuerto"
+                Return ServicioWCF.LugarRetiroDevolucion.Aeropuerto
+            Case "TerminalBuses"
+                Return ServicioWCF.LugarRetiroDevolucion.TerminalBuses
+            Case Else
+                Return ServicioWCF.LugarRetiroDevolucion.Hotel
+        End Select
     End Function
 
     Public Function cancelarReservaPorCodigo(codigoReserva)

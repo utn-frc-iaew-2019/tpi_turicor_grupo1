@@ -30,15 +30,7 @@ Public Class ReservaController
 
         ' Crea una nueva reserva en el servicio WCF y retorna el código de reserva
         Dim servicioReserva As New ServicioReserva
-        Return servicioReserva.crearNuevaReserva(reserva.IdVechiculoCiudad,
-                                                 reserva.FechaRetiroP,
-                                                 reserva.FechaDevolucionP,
-                                                 reserva.apellidoNombreClienteP,
-                                                 reserva.dniClienteP,
-                                                 reserva.costoP,
-                                                 reserva.precioVentaP,
-                                                 reserva.lugarRetiroP,
-                                                 reserva.lugarDevolucionP)
+        Return servicioReserva.crearNuevaReserva(reserva)
     End Function
 
     ' PUT api/Reserva/5
