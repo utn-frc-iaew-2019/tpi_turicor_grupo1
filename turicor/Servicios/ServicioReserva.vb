@@ -14,18 +14,16 @@
         Return response.Reserva
     End Function
 
-    Public Function crearNuevaReserva(idVehiculoCiudad, fechaRetiro, fechaDevolucion, apellidoNombreCliente, dniCliente, costo, precioVenta, lugarRetiro, lugarDevolucion)
+    Public Function crearNuevaReserva(reserva As Reserva)
         Dim request As New ServicioWCF.ReservarVehiculoRequest()
-        request.IdVehiculoCiudad = idVehiculoCiudad
-        request.FechaHoraRetiro = fechaRetiro
-        request.FechaHoraDevolucion = fechaDevolucion
-        request.ApellidoNombreCliente = apellidoNombreCliente
-        request.NroDocumentoCliente = dniCliente
+        request.IdVehiculoCiudad = reserva.IdVehiculoCiudadP
+        request.FechaHoraRetiro = reserva.FechaRetiroP
+        request.FechaHoraDevolucion = reserva.FechaDevolucionP
+        request.ApellidoNombreCliente = reserva.apellidoNombreClienteP
+        request.NroDocumentoCliente = reserva.dniClienteP
 
-        Dim ld As ServicioWCF.LugarRetiroDevolucion = lugarDevolucion
-        Dim lr As ServicioWCF.LugarRetiroDevolucion = lugarRetiro
-        request.LugarDevolucion = ld
-        request.LugarRetiro = lr
+        request.LugarDevolucion = LugarEnumMapping(reserva.lugarDevolucionP)
+        request.LugarRetiro = LugarEnumMapping(reserva.lugarRetiroP)
 
         Dim response = cliente.ReservarVehiculo(credenciales, request)
         Return response.Reserva
@@ -38,4 +36,16 @@
         Return response.Reserva
     End Function
 
+    Private Function LugarEnumMapping(lugar As String) As ServicioWCF.LugarRetiroDevolucion
+        Select Case (lugar)
+            Case "Hotel"
+                Return ServicioWCF.LugarRetiroDevolucion.Hotel
+            Case "Aeropuerto"
+                Return ServicioWCF.LugarRetiroDevolucion.Aeropuerto
+            Case "TerminalBuses"
+                Return ServicioWCF.LugarRetiroDevolucion.TerminalBuses
+            Case Else
+                Return ServicioWCF.LugarRetiroDevolucion.Hotel
+        End Select
+    End Function
 End Class
