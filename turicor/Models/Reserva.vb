@@ -1,5 +1,7 @@
 ﻿Public Class Reserva
 
+
+
     Private IdVehiculoCiudad As Integer
     Public Property IdVechiculoCiudad() As Integer
         Get

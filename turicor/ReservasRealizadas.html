@@ -40,26 +40,45 @@
     <h1></h1>
     <h1>Listado de reservas realizadas</h1>
     <h1></h1>
-    <table class="table table-bordered table-striped">
+
+    <table class="table table-bordered">
         <tr>
-            <th>Identificador</th>
-            <th>Código de reserva</th>
-            <th>Fecha de reserva</th>
-            <th>Cliente</th>
-            <th>Vendedor</th>
-            <th>Costo</th>
-            <th>Precio de venta</th>
-            <th>Vehículo</th>
-            <th>Ciudad</th>
-            <th>Pais</th>
+            <td>Identificador</td>
+            <td id="lbl-identificador"></td>
         </tr>
-        <!--<tr ng-repeat="c in clientes | orderBy:'Nombre'" ng-class="c.IdEstadoCivil == 'S'?'verde':''">
-            <td>{{c.Nombre}}</td>
-            <td>{{c.IdEstadoCivil}}</td>
-            <td>{{c.FechaNacimiento | date : 'd/M/yy'}}</td>
-            <td>{{c.IdSexo}}</td>
-            <td>{{c.Localidad}}</td>
-        </tr>-->
+        <tr>
+            <td>Código de reserva</td>
+            <td id="lbl-codigo-reserva"></td>
+        </tr>
+        <tr>
+            <td>Fecha de reserva</td>
+            <td id="lbl-fecha-reserva"></td>
+        </tr>
+            <tr>
+            <td>Cliente</td>
+            <td id="lbl-cliente"></td>
+        </tr>
+        <tr>
+            <td>Vendedor</td>
+            <td id="txt-vendedor"></td>
+        </tr>
+        <tr>
+            <td>Costo</td>
+            <td id="txt-costo"></td>
+        </tr>
+        <tr>
+            <td>Precio de venta</td>
+        </tr>
+        <tr>
+            <td>Vehículo</td>
+        </tr>
+        <tr>
+            <td>Ciudad</td>
+        </tr>
+        <tr>
+            <td>Pais</td>
+        </tr>
+
     </table>
 </body>
 </html>

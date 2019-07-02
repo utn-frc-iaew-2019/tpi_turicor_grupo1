@@ -1,7 +1,7 @@
 ﻿Public Class ServicioReserva
     Private credenciales As New ServicioWCF.Credentials
     Private cliente As New ServicioWCF.WCFReservaVehiculosClient
-    Dim cadena_conexion As String = "Data Source=IRINA\BDSERVER12;Initial Catalog=TuricorBD;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework"
+    Dim cadena_conexion As String = "Data Source=IRINA\BDSERVER12;Initial Catalog=TuricorBD;Integrated Security=True"
     Public Sub New()
         credenciales.UserName = "grupo_nro1"
         credenciales.Password = "AzArobmjV0"
@@ -13,6 +13,47 @@
         Dim response As ServicioWCF.ConsultarReservasResponse = cliente.ConsultarReserva(credenciales, request)
         Return response.Reserva
     End Function
+
+    Public Function consultarTodasLasReservas()
+        Dim sql As String = " "
+        Dim conexion As New OleDb.OleDbConnection
+        Dim cmd As New OleDb.OleDbCommand
+        Dim tabla As New Data.DataTable
+        Dim reserva As New Reserva
+
+        conexion.ConnectionString = cadena_conexion
+        conexion.Open()
+        cmd.Connection = conexion
+        cmd.CommandType = CommandType.Text
+
+
+        sql = " SELECT Reservas.id, Reservas.codigoReserva, Reservas.fechaReserva, Clientes.nombre, Vendedor.nombre, Reservas.costo, Reservas.precioVenta, Reservas.idVehiculoCiudad, Reservas.idCiudad, Reservas.idPais"
+        sql &= " FROM Reservas INNER JOIN Clientes ON Reservas.idCliente = Clientes.id INNER JOIN Vendedor ON Reservas.idVendedor = Vendedor.id"
+
+        cmd.CommandText = sql
+        tabla.Load(cmd.ExecuteReader())
+        conexion.Close()
+
+
+        Dim c As Integer = 0
+        For c = 0 To tabla.Rows.Count - 1
+            ' id = tabla.Rows(c)(1)
+            ' codigo = tabla.Rows(c)(2)
+            reserva.FechaRetiroP = tabla.Rows(c)(3)
+            reserva.apellidoNombreClienteP = tabla.Rows(c)(4)
+            ' reserva.nombreVendedor = tabla.Rows(c)(5)
+            reserva.costoP = tabla.Rows(c)(6)
+            reserva.precioVentaP = tabla.Rows(c)(7)
+            reserva.IdVechiculoCiudad = tabla.Rows(c)(8)
+            reserva.idCiudadP = tabla.Rows(c)(9)
+            reserva.idPaisP = tabla.Rows(c)(10)
+
+        Next
+
+
+        Return reserva
+    End Function
+
 
     Public Function crearCliente(nombre, dni)
         Dim conexion As New OleDb.OleDbConnection
@@ -103,5 +144,8 @@
         Dim response As ServicioWCF.CancelarReservaResponse = cliente.CancelarReserva(credenciales, request)
         Return response.Reserva
     End Function
+
+
+
 
 End Class

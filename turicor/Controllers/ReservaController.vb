@@ -5,9 +5,9 @@ Public Class ReservaController
     Inherits ApiController
 
     ' GET api/Reserva
-    Public Function GetValues() As IEnumerable(Of String)
-        Dim null As New List(Of String)
-        Return null
+    Public Function GetValues()
+        Dim servicioReserva As New ServicioReserva
+        Return servicioReserva.consultarTodasLasReservas()
     End Function
 
     ' GET api/Reserva/5
