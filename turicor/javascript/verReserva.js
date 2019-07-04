@@ -3,19 +3,26 @@
 
     // Función: carga los datos de la reserva en los labels
     function cargarDatosReserva(reserva) {
-        $("#lbl-identificador").text(reserva.Identificador);
+        $("#lbl-id").text(reserva.Id);
+        $("#lbl-id-vehiculo-ciudad").text(reserva.VehiculoPorCiudadId);
+        $("#lbl-vehiculo").text(reserva.VehiculoPorCiudadEntity.VehiculoEntity.Marca + " " + VehiculoPorCiudadEntity.VehiculoEntity.Modelo);
         $("#lbl-codigo-reserva").text(reserva.CodigoReserva);
         $("#lbl-fecha-reserva").text(reserva.FechaReserva);
-        $("#lbl-fecha-devolucion").text(reserva.FechaDevolucion);
-        $("#lbl-cliente").text(reserva.Cliente);
-        $("#lbl-vendedor").text(reserva.Vendedor);
-        $("#lbl-costo").text(reserva.PrecioPorDia);
-        $("#lbl-precio-venta").text(reserva.PrecioVenta);
+        $("#lbl-fecha-retiro").text(reserva.FechaHoraRetiro);
+        $("#lbl-fecha-cancelacion").text(reserva.FechaHoraCancelacion);
+        $("#lbl-fecha-devolucion").text(reserva.FechaHoraDevolucion);
+        $("#lbl-cliente").text(reserva.ApellidoNombreCliente);
+        $("#lbl-estado").text(reserva.Estado);
+        $("#lbl-lugar-devolucion").text(reserva.LugarDevolucion);
+        $("#lbl-lugar-retiro").text(reserva.LugarRetiro);
+        $("#lbl-total").text(reserva.TotalReserva);
+        $("#lbl-usuario-cancelacion").text(reserva.UsuarioCancelacion);
     }
     // Evento: busca la reserva por codigo
-    $("#btn-buscar").click(function () {
+    $("#btn-buscar").click(function (e) {
+        e.preventDefault();
         reservaSeleccionada = $("#txt-codigo-reserva").val().trim();
-        if (reservaSeleccionada !== null) {
+        if (reservaSeleccionada !== "" && reservaSeleccionada != null) {
             $.ajax({
                 url: 'http://localhost:55669/api/Reserva/' + reservaSeleccionada + '/',
                 success: function (respuesta) {
@@ -27,14 +34,19 @@
                     console.log("Error al obtener reserva: ", e.responseText);
                 }
             });
+        } else {
+            $("#txt-codigo-reserva").focus();
+            alert("Debe escribir el código de la reserva que quiere buscar.");
         }
     });
 
     // Evento: cancela la reserva por codigo
-    $("#btn-cancelar").click(function () {
-        if (reservaSeleccionada !== null) {
+    $("#btn-cancelar").click(function (e) {
+        e.preventDefault();
+        reservaSeleccionada = $("#txt-codigo-reserva").val().trim();
+        if (reservaSeleccionada !== "" && reservaSeleccionada != null) {
             $.ajax({
-                url: 'http://localhost:55669/api/Reserva/' + codigoAbuscar + '/',
+                url: 'http://localhost:55669/api/Reserva/' + reservaSeleccionada + '/',
                 success: function (respuesta) {
                     console.log("exitooo");
                     console.log(respuesta);
@@ -44,6 +56,9 @@
                     console.log("Error al obtener reserva: ", e.responseText);
                 }
             });
+        } else {
+            $("#txt-codigo-reserva").focus();
+            alert("Debe escribir el código de la reserva que quiere cancelar.");
         }
     });
 

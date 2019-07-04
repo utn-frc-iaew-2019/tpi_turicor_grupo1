@@ -11,7 +11,7 @@
         Dim request As New ServicioWCF.ConsultarReservasRequest()
         request.CodigoReserva = codigoReserva
         Dim response As ServicioWCF.ConsultarReservasResponse = cliente.ConsultarReserva(credenciales, request)
-        Return response.Reserva
+        Return response.Reserva.VehiculoPorCiudadEntity.VehiculoEntity.Marca
     End Function
 
     Public Function consultarTodasLasReservas()

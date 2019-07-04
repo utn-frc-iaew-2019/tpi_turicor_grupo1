@@ -40,50 +40,66 @@
     <h1></h1>
     <div class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Ingrese código de reserva" aria-label="Buscar" id="txt-codigo-reserva">
-        <button class="btn btn-outline-success my-2 my-sm-0" id="btn-buscar">Ver Reserva</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:10px;" id="btn-buscar">Ver Reserva</button>
+        <button class="btn btn-outline-danger my-2 my-sm-0" id="btn-cancelar">Cancelar Reserva</button>
     </div>
     <table class="table table-bordered">
         <tr>
-            <td>Identificador</td>
-            <td id="lbl-identificador"></td>
-        </tr>
-        <tr>
             <td>Código de reserva</td>
             <td id="lbl-codigo-reserva"></td>
+        </tr>
+        <tr>
+            <td>Id Reserva</td>
+            <td id="lbl-id"></td>
         </tr>
         <tr>
             <td>Fecha de reserva</td>
             <td id="lbl-fecha-reserva"></td>
         </tr>
         <tr>
+            <td>Estado de reserva</td>
+            <td id="lbl-estado"></td>
+        </tr>
+        <tr>
+            <td>Id Vehículo Ciudad</td>
+            <td id="lbl-id-vehiculo-ciudad"></td>
+        </tr>
+        <tr>
+            <td>Vehículo</td>
+            <td id="lbl-vehiculo"></td>
+        </tr>
+        <tr>
+            <td>Fecha de retiro</td>
+            <td id="lbl-fecha-retiro"></td>
+        </tr>
+        <tr>
             <td>Fecha de devolución</td>
             <td id="lbl-fecha-devolucion"></td>
+        </tr>
+        <tr>
+            <td>Lugar de retiro</td>
+            <td id="lbl-lugar-retiro"></td>
+        </tr>
+        <tr>
+            <td>Lugar de devolución</td>
+            <td id="lbl-lugar-devolucion"></td>
         </tr>
         <tr>
             <td>Cliente</td>
             <td id="lbl-cliente"></td>
         </tr>
         <tr>
-            <td>Vendedor</td>
-            <td id="txt-vendedor"></td>
+            <td>Total reserva</td>
+            <td id="lbl-total"></td>
         </tr>
         <tr>
-            <td>Costo</td>
-            <td id="txt-costo"></td>
+            <td>Fecha cancelación</td>
+            <td id="lbl-fecha-cancelacion"></td>
         </tr>
         <tr>
-            <td>Precio de venta</td>
+            <td>Usuario cancelación</td>
+            <td id="lbl-usuario-cancelacion"></td>
         </tr>
-        <tr>
-            <td>Vehículo</td>
-        </tr>
-        <tr>
-            <td>Ciudad</td>
-        </tr>
-        <tr>
-            <td>Pais</td>
-        </tr>
-        
     </table>
 </body>
 </html>
