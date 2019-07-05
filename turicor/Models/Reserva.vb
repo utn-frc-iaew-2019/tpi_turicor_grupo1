@@ -12,22 +12,23 @@
         End Set
     End Property
 
-    Private FechaRetiro As Date
-    Public Property FechaRetiroP() As Date
+    Private FechaRetiro As String
+
+    Public Property FechaRetiroP() As String
         Get
             Return FechaRetiro
         End Get
-        Set(ByVal value As Date)
+        Set(ByVal value As String)
             FechaRetiro = value
         End Set
     End Property
 
-    Private FechaDevolucion As Date
-    Public Property FechaDevolucionP() As Date
+    Private FechaDevolucion As String
+    Public Property FechaDevolucionP() As String
         Get
             Return FechaDevolucion
         End Get
-        Set(ByVal value As Date)
+        Set(ByVal value As String)
             FechaDevolucion = value
         End Set
     End Property

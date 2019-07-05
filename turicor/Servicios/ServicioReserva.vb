@@ -1,4 +1,6 @@
-﻿Public Class ServicioReserva
+﻿Imports System.Globalization
+
+Public Class ServicioReserva
     Private credenciales As New ServicioWCF.Credentials
     Private cliente As New ServicioWCF.WCFReservaVehiculosClient
     Dim cadena_conexion As String = "Data Source=IRINA\BDSERVER12;Initial Catalog=TuricorBD;Integrated Security=True"
@@ -88,8 +90,11 @@
     Public Function crearNuevaReserva(reserva As Reserva)
         Dim request As New ServicioWCF.ReservarVehiculoRequest()
         request.IdVehiculoCiudad = reserva.IdVehiculoCiudadP
-        request.FechaHoraRetiro = reserva.FechaRetiroP
-        request.FechaHoraDevolucion = reserva.FechaDevolucionP
+
+        'Forzamos a que el formato de fecha que recibimos en el request sea dd/MM/yyyy H:mm
+        request.FechaHoraRetiro = DateTime.ParseExact(reserva.FechaRetiroP, "dd/MM/yyyy H:mm", CultureInfo.InvariantCulture)
+        request.FechaHoraDevolucion = DateTime.ParseExact(reserva.FechaDevolucionP, "dd/MM/yyyy H:mm", CultureInfo.InvariantCulture)
+
         request.ApellidoNombreCliente = reserva.apellidoNombreClienteP
         request.NroDocumentoCliente = reserva.dniClienteP
 
