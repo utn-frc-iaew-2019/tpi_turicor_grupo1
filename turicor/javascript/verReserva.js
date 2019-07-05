@@ -46,14 +46,16 @@
         reservaSeleccionada = $("#txt-codigo-reserva").val().trim();
         if (reservaSeleccionada !== "" && reservaSeleccionada != null) {
             $.ajax({
+                type: "DELETE",
                 url: 'http://localhost:55669/api/Reserva/' + reservaSeleccionada + '/',
                 success: function (respuesta) {
                     console.log("exitooo");
                     console.log(respuesta);
+                    alert("Reserva cancelada correctamente.")
                     cargarDatosReserva(respuesta);
                 },
                 error: function (e) {
-                    console.log("Error al obtener reserva: ", e.responseText);
+                    console.log("Error al cancelar reserva: ", e.responseText);
                 }
             });
         } else {
