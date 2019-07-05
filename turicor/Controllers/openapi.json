@@ -1,0 +1,163 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "defaultTitle",
+    "description" : "defaultDescription",
+    "version" : "0.3"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:55669"
+  } ],
+  "paths" : {
+    "/api/Paises" : {
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "default" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:55669"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:55669"
+      } ]
+    },
+    "/api/Vendedor" : {
+      "get" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "default" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:55669"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:55669"
+      } ]
+    },
+    "/api/Paises/1/" : {
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "default" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:55669"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:55669"
+      } ]
+    },
+    "/api/Reserva/1/" : {
+      "get" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "default" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:55669"
+        } ]
+      },
+      "delete" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "default" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:55669"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:55669"
+      } ]
+    },
+    "/api/Vehiculo/1/" : {
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "default" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:55669"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:55669"
+      } ]
+    },
+    "/api/Vehiculo" : {
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "default" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:55669"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:55669"
+      } ]
+    },
+    "/api/Reserva" : {
+      "get" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "default" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:55669"
+        } ]
+      },
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : { }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "\n\"apellidoNombreClienteP\": \"Juan Perez\",\n  \"dniClienteP\": \"39438943\",\n  \"FechaRetiroP\": \"20/01/2020 08:00\",\n  \"FechaDevolucionP\": \"25/01/2020 22:00\",\n  \"IdVehiculoCiudadP\": \"34\",\n  \"lugarRetiroP\": \"Aeropuerto\",\n  \"lugarDevolucionP\": \"Hotel\",\n  \"costoP\": 120,\n  \"precioVentaP\": 160,\n  \"idVendedorP\": 1,\n  \"idPaisP\": \"1\",\n  \"idCiudadP\": \"1\"\n  "
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:55669"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:55669"
+      } ]
+    }
+  },
+  "components" : { }
+}
