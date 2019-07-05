@@ -253,6 +253,7 @@
     <Compile Include="Controllers\PaisesController.vb" />
     <Compile Include="Controllers\ReservaController.vb" />
     <Compile Include="Controllers\VehiculoController.vb" />
+    <Compile Include="Controllers\VendedorController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -282,6 +283,7 @@
     <Compile Include="Servicios\ServicioPaises.vb" />
     <Compile Include="Servicios\ServicioReserva.vb" />
     <Compile Include="Servicios\ServicioVehiculo.vb" />
+    <Compile Include="Servicios\ServicioVendedor.vb" />
     <Compile Include="Turicor.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
