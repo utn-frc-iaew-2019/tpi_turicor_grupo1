@@ -117,10 +117,44 @@
         }
     });
 
-    // ------------------------------------------------------------------------------------------------------
-    // --------- FALTA: Cargar vendedores en la BD y cargarlos en el select con la funcion: -----------------
-    // --------- cargarSelect($("#slc-vendedor"), arrayVendedores);                         -----------------
-    // ------------------------------------------------------------------------------------------------------
+    $.ajax({
+        url: 'http://localhost:55669/api/Vendedor/',
+        success: function (respuesta) {
+            // Carga el select de vendedores
+            console.log(respuesta);
+            cargarSelectVendedor($("#slc-vendedor"), respuesta);
+        },
+        error: function (e) {
+            $("#slc-vendedor").empty();
+            $("#slc-vendedor").append('<option value=" - 1">Seleccione un vendedor</option>');
+
+            console.log("Error al obtener vendedores: ", e);
+        }
+    });
+
+    function cargarSelectVendedor($select, array) {
+        $select.empty();
+        for (var i = 0; i < array.length; i++) {
+            var option = document.createElement("option");
+            option.value = array[i].idP;
+            option.text = array[i].nombreP;
+
+            $select.append(option)
+        }
+        $select.focus().trigger("change");
+    }
+
+    function cargarSelectVendedor($select, array) {
+        $select.empty();
+        for (var i = 0; i < array.length; i++) {
+            var option = document.createElement("option");
+            option.value = array[i].idP;
+            option.text = array[i].nombreP;
+
+            $select.append(option)
+        }
+        $select.focus().trigger("change");
+    }
 
     // Evento: Hace la petición  de ciudades cuando cambia el pais elegido
     $("#slc-pais").on("change", function () {
